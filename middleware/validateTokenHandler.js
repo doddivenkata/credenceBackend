@@ -20,7 +20,7 @@ const validateToken = asyncHandler(async (req, res, next) => {
     // });
     if (token) {
       if (token === process.env.ACCESS_TOKEN_SECERT) {
-        console.log("same");
+        console.log("Token verified");
         next();
       } else {
         console.log("wrong");

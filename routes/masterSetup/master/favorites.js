@@ -8,18 +8,18 @@ const {
   getFavorites,
   updateFavorites,
   deleteFavorites,
-} = require("../../../controllers/masterSetUp/favorites");
+} = require("../../../controllers/masterSetUp/master/favorites");
 
 router.use(validateToken);
 
-router.route("/").get(getAllFavorites);
+router.route("/getAllFavourites").get(getAllFavorites);
 
-router.route("/").post(AddFavorites);
+router.route("/insertfavourites").post(AddFavorites);
 
 router.route("/:id").get(getFavorites);
 
-router.route("/:id").put(updateFavorites);
+router.route("/updatefavourites/:val").put(updateFavorites);
 
-router.route("/:id").delete(deleteFavorites);
+router.route("/deletefavourites/val/:id").delete(deleteFavorites);
 
 module.exports = router;

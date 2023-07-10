@@ -23,11 +23,17 @@ app.get("/", function (req, res) {
   res.send("Hello World");
 });
 
+app.use("/op/master", require("./routes/masterSetup/master/favorites"));
+
 app.use(
-  "/op/master/getAllFavourites",
-  require("./routes/masterSetup/master/favorites")
+  "/op/master/getAllWardTypes",
+  require("./routes/masterSetup/Inpatient/wardType")
 );
 
+app.use(
+  "/op/master/getAllWardSetUp",
+  require("./routes/masterSetup/Inpatient/wardSetUp")
+);
 app.use(errorHandler);
 
 app.listen(port, () => {
